@@ -5,6 +5,6 @@ namespace AlloyMvcGraphQL.Models.Pages;
 /// </summary>
 public interface ISearchPage
 {
-    string MyTestProperty { get; set; }
-    string SemanticSearch_Description { get; set; }
+    string MyTestProperty { get; }
+    string SemanticSearch_Description { get; }
 }

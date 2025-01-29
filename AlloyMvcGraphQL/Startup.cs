@@ -76,6 +76,8 @@ public class Startup
             var conventionRepo = services.GetRequiredService<ConventionRepository>();
             conventionRepo.IncludeAbstract<SitePageData>();
             conventionRepo.IncludeInterface<ISearchPage>();
+            conventionRepo.ForInstancesOf<SitePageData>()
+                .IncludeField(s => s.SemanticSearch_Description);
         }
     }
 }

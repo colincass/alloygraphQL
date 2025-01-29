@@ -28,6 +28,9 @@ public abstract class SitePageData : PageData, ICustomCssInContentArea, ISearchP
         set => this.SetPropertyValue(p => p.MetaTitle, value);
     }
 
+    [Display(Name = "Page summary for search")]
+    public virtual string PageSummary { get; set; }
+
     [Display(
         GroupName = Globals.GroupNames.MetaData,
         Order = 200)]
@@ -88,7 +91,13 @@ public abstract class SitePageData : PageData, ICustomCssInContentArea, ISearchP
     public string ContentAreaCssClass => "teaserblock";
 
     [Display(GroupName = SystemTabNames.Content)]
-    public virtual string MyTestProperty { get; set; }
+    public virtual string MyTestProperty { get; }
     [Display(GroupName = SystemTabNames.Content)]
-    public virtual string SemanticSearch_Description { get; set; }
+    public virtual string SemanticSearch_Description
+    {
+        get
+        {
+            return this.PageSummary;
+        }
+    }
 }
